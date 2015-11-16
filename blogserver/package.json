@@ -1,0 +1,21 @@
+{
+  "name": "heavenblog",
+  "version": "1.0.0",
+  "description": "A blog management system based on express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "heaven",
+    "blog",
+    "node",
+    "express"
+  ],
+  "author": "heaven",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.3",
+    "request": "^2.65.0"
+  }
+}
