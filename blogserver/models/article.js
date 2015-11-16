@@ -1,5 +1,4 @@
 
-
 function Article(article) {
 	this.
 };
