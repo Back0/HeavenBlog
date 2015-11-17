@@ -29,7 +29,7 @@ module.exports = function(app) {
 			query = url.parse(request.url,true).query,
 			servicecode = query.serviceCode;
 			postData = '';	
-		console.log("-------收到post请求---------")；
+		console.log("-------收到post请求---------");
 		request.setEncoding("utf8");
 	    request.addListener("data", function(postDataChunk) {
 	      postData += postDataChunk;
