@@ -1,6 +1,6 @@
-.login{
+.login, .register{
     background: #fbfbfb;
-    #login{
+    #login, #register{
         //height: 300px;
         position: absolute;
         left: 50%;
@@ -13,18 +13,22 @@
             height: 61px;
             background: url("../art/heaven.png") no-repeat center;
         }
-        .login-form{
+        .login-form, .register-form{
             //width: 260px;
             //height: 230px;
             border: 1px solid rgba(200,200,200,0.7);
             border-radius: 3px;
             background: #ffffff;
             margin: 10px auto;
-            padding: 26px 24px;
+            padding: 26px 40px;
             -webkit-box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
                     box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
             p{
                 margin: 10px auto;
+                label{
+                    font-weight: normal;
+                    width: 100%;
+                }
             }
             .input{
                 width: 100%;
@@ -46,6 +50,10 @@
             }
             .remember{
                 float: left;
+                input[type='checkbox']{
+                    position: relative;
+                    top: 2px;
+                }
             }
             .submit{
                 float: right;
