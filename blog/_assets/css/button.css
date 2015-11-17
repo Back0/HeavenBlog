@@ -1,0 +1,14 @@
+.btn{
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    padding: 5px 10px;
+}
+
+.btn-primary{
+    background-image: linear-gradient(to bottom,#2e9fd2,#21759b);
+    border: 1px solid #21759B;
+    -webkit-box-shadow: inset rgb(97, 190, 232) 0 1px 10px 0px;
+    box-shadow: inset rgb(97, 190, 232) 0 1px 10px 0px;
+}
