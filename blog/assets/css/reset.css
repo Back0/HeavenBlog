@@ -1,0 +1,15 @@
+section, div,
+h1, h2, h3, h4, h5, h6{
+    padding: 0;
+    margin: 0;
+}
+img{
+    border: none;
+}
+.clear{
+    clear: both;
+}
+p{
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}

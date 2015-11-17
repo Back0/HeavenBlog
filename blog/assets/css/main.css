@@ -1,0 +1,51 @@
+.login, .register {
+  background: #fbfbfb; }
+  .login #login, .login #register, .register #login, .register #register {
+    position: absolute;
+    left: 50%;
+    width: 320px;
+    top: 150px;
+    margin-left: -160px; }
+    .login #login h1 a, .login #register h1 a, .register #login h1 a, .register #register h1 a {
+      display: block;
+      width: 100%;
+      height: 61px;
+      background: url("../art/heaven.png") no-repeat center; }
+    .login #login .login-form, .login #login .register-form, .login #register .login-form, .login #register .register-form, .register #login .login-form, .register #login .register-form, .register #register .login-form, .register #register .register-form {
+      border: 1px solid rgba(200, 200, 200, 0.7);
+      border-radius: 3px;
+      background: #ffffff;
+      margin: 10px auto;
+      padding: 26px 40px;
+      -webkit-box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px;
+      box-shadow: rgba(200, 200, 200, 0.7) 0 4px 10px -1px; }
+      .login #login .login-form p, .login #login .register-form p, .login #register .login-form p, .login #register .register-form p, .register #login .login-form p, .register #login .register-form p, .register #register .login-form p, .register #register .register-form p {
+        margin: 10px auto; }
+        .login #login .login-form p label, .login #login .register-form p label, .login #register .login-form p label, .login #register .register-form p label, .register #login .login-form p label, .register #login .register-form p label, .register #register .login-form p label, .register #register .register-form p label {
+          font-weight: normal;
+          width: 100%; }
+      .login #login .login-form .input, .login #login .register-form .input, .login #register .login-form .input, .login #register .register-form .input, .register #login .login-form .input, .register #login .register-form .input, .register #register .login-form .input, .register #register .register-form .input {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 5px;
+        border: 1px solid #d8d8d8;
+        border-radius: 3px;
+        text-indent: 3px;
+        background: #fbfbfb;
+        outline: none;
+        -webkit-box-shadow: inset rgba(200, 200, 200, 0.7) 0 0 5px -1px;
+        box-shadow: inset rgba(200, 200, 200, 0.7) 0 0 5px -1px; }
+        .login #login .login-form .input:focus, .login #login .register-form .input:focus, .login #register .login-form .input:focus, .login #register .register-form .input:focus, .register #login .login-form .input:focus, .register #login .register-form .input:focus, .register #register .login-form .input:focus, .register #register .register-form .input:focus {
+          border-color: rgba(56, 147, 189, 0.7);
+          -webkit-box-shadow: inset rgba(56, 147, 189, 0.7) 0 0 5px -1px;
+          box-shadow: inset rgba(56, 147, 189, 0.7) 0 0 5px -1px; }
+      .login #login .login-form .remember, .login #login .register-form .remember, .login #register .login-form .remember, .login #register .register-form .remember, .register #login .login-form .remember, .register #login .register-form .remember, .register #register .login-form .remember, .register #register .register-form .remember {
+        float: left; }
+        .login #login .login-form .remember input[type='checkbox'], .login #login .register-form .remember input[type='checkbox'], .login #register .login-form .remember input[type='checkbox'], .login #register .register-form .remember input[type='checkbox'], .register #login .login-form .remember input[type='checkbox'], .register #login .register-form .remember input[type='checkbox'], .register #register .login-form .remember input[type='checkbox'], .register #register .register-form .remember input[type='checkbox'] {
+          position: relative;
+          top: 2px; }
+      .login #login .login-form .submit, .login #login .register-form .submit, .login #register .login-form .submit, .login #register .register-form .submit, .register #login .login-form .submit, .register #login .register-form .submit, .register #register .login-form .submit, .register #register .register-form .submit {
+        float: right; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,63 @@
+.login, .register{
+    background: #fbfbfb;
+    #login, #register{
+        //height: 300px;
+        position: absolute;
+        left: 50%;
+        width: 320px;
+        top: 150px;
+        margin-left: -160px;
+        h1 a{
+            display: block;
+            width: 100%;
+            height: 61px;
+            background: url("../art/heaven.png") no-repeat center;
+        }
+        .login-form, .register-form{
+            //width: 260px;
+            //height: 230px;
+            border: 1px solid rgba(200,200,200,0.7);
+            border-radius: 3px;
+            background: #ffffff;
+            margin: 10px auto;
+            padding: 26px 40px;
+            -webkit-box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+                    box-shadow: rgba(200,200,200,0.7) 0 4px 10px -1px;
+            p{
+                margin: 10px auto;
+                label{
+                    font-weight: normal;
+                    width: 100%;
+                }
+            }
+            .input{
+                width: 100%;
+                height: 30px;
+                line-height: 30px;
+                margin-top: 5px;
+                border: 1px solid #d8d8d8;
+                border-radius: 3px;
+                text-indent: 3px;
+                background: #fbfbfb;
+                outline: none;
+                -webkit-box-shadow: inset rgba(200, 200, 200, 0.7) 0 0 5px -1px;
+                box-shadow: inset rgba(200, 200, 200, 0.7) 0 0 5px -1px;
+                &:focus{
+                    border-color: rgba(56,147,189,0.7);
+                    -webkit-box-shadow: inset rgba(56,147,189, 0.7) 0 0 5px -1px;
+                    box-shadow: inset rgba(56,147,189, 0.7) 0 0 5px -1px;
+                }
+            }
+            .remember{
+                float: left;
+                input[type='checkbox']{
+                    position: relative;
+                    top: 2px;
+                }
+            }
+            .submit{
+                float: right;
+            }
+        }
+    }
+}
