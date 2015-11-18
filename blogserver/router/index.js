@@ -3,7 +3,7 @@ var url = require('url'),
 	fs = require('fs'),
 	querystring = require('querystring'),
 	server = require('../server/server'),
-	mine = require('../config/mine')
+	mine = require('../config/mine').types,
 	svconfig = require('../config/svConfig'),
 	pathconfig = require('../config/pathConfig');
 module.exports = function(app) {
@@ -17,10 +17,10 @@ module.exports = function(app) {
 			pathname = pathname.replace('/heavenview',''),
 			query = url.parse(request.url,true).query,
 			servicecode = query.serviceCode;
-		var ext = path.extname(realPath);
 		var realPath = path.join(pathconfig.view["root"] + pathconfig.view["heaven"], pathname);
+	    var ext = path.extname(realPath);
 	    ext = ext ? ext.slice(1) : 'unknown';
-	    console.log(realPath)
+	    console.log(ext)
 	    fs.exists(realPath, function (exists) {
 	        if (!exists) {
 	            response.writeHead(404, {
