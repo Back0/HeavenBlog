@@ -12,16 +12,18 @@ module.exports = function(app) {
   		};
   	//heavenview请求前台资源
   	app.get(/heavenview/, function (request, response) {
-  		console.log('页面资源请求');
 		var pathname = url.parse(request.url).pathname,
-			pathname = pathname.replace('/heavenview',''),
+			pathname = pathname.replace(/heavenview\//g,''),
 			query = url.parse(request.url,true).query,
-			servicecode = query.serviceCode;
-		var realPath = path.join(pathconfig.view["root"] + pathconfig.view["heaven"], pathname);
-	    var ext = path.extname(realPath);
+			realPath,ext;
+		if(pathname.indexOf('/assets/') > -1){
+			realPath = path.join(pathconfig.view["root"], pathname);
+		}else{
+			realPath = path.join(pathconfig.view["root"] + pathconfig.view["heaven"], pathname);
+		}		
+	   	ext = path.extname(realPath);
 	    ext = ext ? ext.slice(1) : 'unknown';
-	    console.log(ext)
-	    fs.exists(realPath, function (exists) {
+	    fs.exists(realPath, function (exists) {    
 	        if (!exists) {
 	            response.writeHead(404, {
 	                'Content-Type': 'text/plain'
