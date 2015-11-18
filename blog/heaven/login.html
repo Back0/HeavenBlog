@@ -36,7 +36,7 @@
                 </label>
             </p>
             <p class="submit">
-                <input type="submit" class="btn btn-primary" value="登录" name="submit">
+                <button type="button" class="btn btn-primary"  name="submit">登录</button>
             </p>
             <br class="clear"/>
         </form>
@@ -44,4 +44,18 @@
     <script src="../assets/libs/js/jquery.js"></script>
     <script src="../assets/libs/js/bootstrap.min.js"></script>
 </body>
+<script type="text/javascript">
+$(function(){
+    $()
+})
+function registerUser(){
+    var userName = $('#userName').val(),
+        password = $('#user-pass').val();
+        $.get('/heavenserver?servicecode= userlogin',function(data){
+                if(data){
+                    console.log(data)
+                }
+        })
+}
+</script>
 </html>
