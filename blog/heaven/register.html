@@ -56,7 +56,7 @@ function registerUser(){
         },
         condition = JSON.stringify(inPara);
 
-        $.post('localhost:2014/heavenserver?servicecode= registeruser',condition,function(data){
+        $.post('http://localhost:2014/heavenserver?servicecode= registeruser',condition,function(data){
                 if(data){
                     console.log(data)
                 }
