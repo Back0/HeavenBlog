@@ -14,6 +14,8 @@ module.exports = function(app) {
 			servicecode = query.serviceCode;		
 		response.send('heavenview')
 	});
+
+	//页面资源请求
 	//get请求分支
 	app.get('/', function (request, response) {
 		var pathname = url.parse(request.url).pathname,
