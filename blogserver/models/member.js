@@ -9,7 +9,7 @@
  * 
  */
 function Member(member) {
-	this.name = member.name;
+	this.nickname = member.nickName;
 	this.password = member.password;
 	this.email = member.email;
 };
