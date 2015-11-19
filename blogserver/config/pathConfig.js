@@ -1,7 +1,7 @@
 module.exports = {
-	view：{
-		root:'../blog/',
-		res:''
+	view : {
+		"root" : "../blog/",
+		"heaven":"heaven/",
+		"res":"assets/"
 	}
-
 }

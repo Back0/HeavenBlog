@@ -1,6 +1,9 @@
 var url = require('url'),
+	path = require('path'),
+	fs = require('fs'),
 	querystring = require('querystring'),
 	server = require('../server/server'),
+	mine = require('../config/mine').types,
 	svconfig = require('../config/svConfig'),
 	pathconfig = require('../config/pathConfig');
 module.exports = function(app) {
@@ -8,28 +11,65 @@ module.exports = function(app) {
   		  
   		};
   	//heavenview请求前台资源
-  	app.get('/heavenview', function (request, response) {
+  	app.get(/heavenview/, function (request, response) {
 		var pathname = url.parse(request.url).pathname,
+			pathname = pathname.replace(/heavenview\//g,''),
 			query = url.parse(request.url,true).query,
-			servicecode = query.serviceCode;		
-		response.send('heavenview')
+			realPath,ext;
+		if(pathname.indexOf('/assets/') > -1){
+			realPath = path.join(pathconfig.view["root"], pathname);
+		}else{
+			realPath = path.join(pathconfig.view["root"] + pathconfig.view["heaven"], pathname);
+		}		
+	   	ext = path.extname(realPath);
+	    ext = ext ? ext.slice(1) : 'unknown';
+	    fs.exists(realPath, function (exists) {    
+	        if (!exists) {
+	            response.writeHead(404, {
+	                'Content-Type': 'text/plain'
+	            });
+
+	            response.write("This request URL " + pathname + " was not found on this server.");
+	            response.end();
+	        } else {
+	            fs.readFile(realPath, "binary", function (err, file) {
+	                if (err) {
+	                    response.writeHead(500, {
+	                        'Content-Type': 'text/plain'
+	                    });
+	                    response.end(err);
+	                } else {
+	                    var contentType = mine[ext] || "text/plain";
+	                    response.writeHead(200, {
+	                        'Content-Type': contentType
+	                    });
+	                    response.write(file, "binary");
+	                    response.end();
+	                }
+	            });
+	        }
+	    });		
+		
 	});
 
-	//页面资源请求
+	//后台服务请求
 	//get请求分支
-	app.get('/', function (request, response) {
+	app.get('/heavenserver', function (request, response) {
+		console.lo("........收到get请求........")
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
-			servicecode = query.serviceCode;		
+			servicecode = query.serviceCode;	
+			condole.log(query)	
 		response.send('nihao')
 	});
 	//post请求分支
-	app.post('/', function (request, response,next) {
+	app.post('/heavenserver', function (request, response,next) {
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
 			servicecode = query.serviceCode;
 			postData = '';	
-		console.log("-------收到post请求---------")；
+		console.log("-------收到post请求---------");
+		console.log(query);
 		request.setEncoding("utf8");
 	    request.addListener("data", function(postDataChunk) {
 	      postData += postDataChunk;
