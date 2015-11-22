@@ -19,7 +19,7 @@
         <form class="register-form" method="post" action="#">
             <p>
                 <label for="user-name">邮箱<br/>
-                    <input type="text" class="input" name="user-name" id="user-name" size="20">
+                    <input type="text" class="input" name="user-email" id="user-name" size="20">
                 </label>
             </p>
             <p>
@@ -46,17 +46,17 @@ $(function(){
     $('button[name="register"').bind('click',registerUser)
 })
 function registerUser(){
-    var userName = $('#userName').val(),
+    var userName = $('#user-name').val(),
         nickName = $('#nick-name').val(),
         password = $('#user-pass').val(),
         inPara = {
-            name : userName,
+            email : userName,
             nickName:nickName,
             password:password
         },
         condition = JSON.stringify(inPara);
 
-        $.post('http://localhost:2014/heavenserver?servicecode= registeruser',condition,function(data){
+        $.post('http://localhost:2014/heavenserver?servicecode=registeruser',condition,function(data){
                 if(data){
                     console.log(data)
                 }
