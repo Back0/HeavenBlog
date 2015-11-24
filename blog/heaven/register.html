@@ -57,8 +57,11 @@ function registerUser(){
         condition = JSON.stringify(inPara);
 
         $.post('http://localhost:2014/heavenserver?servicecode=registeruser',condition,function(data){
-                if(data){
-                    console.log(data)
+            console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+                if(data.operate_code){
+                    alert("注册成功")
+                }else{
+                    alert("注册失败")
                 }
         })
 }

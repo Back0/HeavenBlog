@@ -3,11 +3,14 @@ module.exports = {
     host: '127.0.0.1', 
     user: 'root',
     password: 'root',
-    database:'cms', // 前面建的user表位于这个数据库中
+    database:'cms', 
     port: 3306
   },
+
+  //此系统中使用mongodb
   mongodb:{
-  	host: '127.0.0.1', 
-    database:'HeavenBlog'
+    dbname:"HeavenBlog",
+    port: "27017",
+    host: "127.0.0.1",
   }
 };

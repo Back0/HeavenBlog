@@ -8,10 +8,10 @@
  * email：邮箱账号，用户的唯一标识，以此作为登陆名
  * 
  */
-function Member(member) {
-	this.nickname = member.nickName;
-	this.password = member.password;
-	this.email = member.email;
+function Member(user) {
+	this.nickname = user.nickName;
+	this.password = user.password;
+	this.email = user.email;
 };
 
 module.exports = Member;
