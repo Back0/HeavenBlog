@@ -11,8 +11,8 @@ module.exports = {
 		//用户注册
 		var newUser = new member(user);
 		console.log("新用户信息 ------>" +newUser);
-		userdao.addNewUser(newUser,function(){
-			callback()
+		userdao.addNewUser(newUser,function(data){
+			callback("",data,data.status);
 		});
 	}	
 };
