@@ -12,5 +12,10 @@ module.exports = {
     dbname:"HeavenBlog",
     port: "27017",
     host: "127.0.0.1",
+  },
+  redis : {
+    port: "6379",
+    host: "10.11.16.235",
+    options :{}
   }
 };

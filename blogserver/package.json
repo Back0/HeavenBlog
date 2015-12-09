@@ -20,7 +20,9 @@
     "request": "^2.65.0"
   },
   "dependencies": {
+    "art-template": "^3.0.3",
     "mongodb": "^2.0.48",
-    "mongoskin": "^2.0.3"
+    "mongoskin": "^2.0.3",
+    "redis": "^2.3.1"
   }
 }

@@ -17,7 +17,10 @@ var CRUD = function(collection){
     this.collection = collection;
     db.bind(this.collection);
 };
-
+/**
+ * [prototype description]
+ * @type {Object}
+ */
 CRUD.prototype = {
     /*
     * @des: 创建一条记录

@@ -69,24 +69,4 @@ exports.select = select;
 
 
 
-//外部使用方法
-/*
- * 
-
-
-var database = require('./common/dbOperate');
-app.get('/', function (request, response) {
-var selectSql = 'select * from table1';
-var insertSql = 'insert into table1 set ?',insertParam = {id:001,name:'liu'};
-database.select(selectSql,function(err,data,tabMessage){          //select为异步查询，所以依赖查询结果的操作应放在回调函数中
-	console.log(data)
-});
-database.update(sql,function(err,data,tabMessage){          
-	console.log(data);
-});
-
-//插入信息
-database.insert(insertSql,insertParam,function(err,data,tabMessage){          
-	console.log(data);
-});
-});*/
+/
