@@ -1,3 +1,4 @@
 module.exports = {
-  "registeruser":"registeruser"
+  "registeruser":"registeruser",
+  "test":"test"
 };

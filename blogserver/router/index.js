@@ -2,6 +2,7 @@ var url = require('url'),
 	path = require('path'),
 	fs = require('fs'),
 	querystring = require('querystring'),
+	template  = require('art-template'),
 	service = require('../service/service'),
 	mine = require('../config/mine').types,
 	svconfig = require('../config/svConfig'),
@@ -52,6 +53,34 @@ module.exports = function(app) {
 		
 	});
 
+	//国际化页面请求测试
+	app.get(/i18n/, function (request, response) {
+		console.log("国际化测试")
+		var pathname = url.parse(request.url).pathname,
+			pathname = pathname.replace(/heavenview\//g,''),
+			query = url.parse(request.url,true).query,
+			realPath,ext;
+		if(pathname.indexOf('/assets/') > -1){
+			realPath = path.join(pathconfig.view["root"], pathname);
+		}else{
+			realPath = path.join(pathconfig.server["tpl"], pathname);
+		}	
+		//art-template配置	
+	   	ext = path.extname(realPath);
+	    ext = ext ? ext.slice(1) : 'unknown';
+	    service["test"]("zh-CN",function(isSuccess,data){
+	    	if(isSuccess){
+	    		response.writeHead(200, {
+                    'Content-Type': "text/html"
+                });
+                response.write(data, "utf8");
+                response.end();
+	    	}
+	    })
+	    
+		
+	});
+
 	//后台服务请求
 	//get请求分支
 	app.get('/heavenserver', function (request, response) {
@@ -88,10 +117,10 @@ module.exports = function(app) {
 	    		service[svName](params,function(err,backdata,isSuccess){
 	    			if(isSuccess){
 	    				console.log('返回结果');
-	    				returnedData.operate_code = "1";
+	    				returnedData.operate_code = 1;
 	    				returnedData["data"] = backdata;
 	    			}else{
-	    				returnedData.operate_code = "0";
+	    				returnedData.operate_code = 0;
 	    				returnedData["data"] = backdata;
 	    			}
 	    			response.json(returnedData);

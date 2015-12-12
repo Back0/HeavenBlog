@@ -17,7 +17,10 @@ var CRUD = function(collection){
     this.collection = collection;
     db.bind(this.collection);
 };
-
+/**
+ * [prototype description]
+ * @type {Object}
+ */
 CRUD.prototype = {
     /*
     * @des: 创建一条记录
@@ -45,6 +48,7 @@ CRUD.prototype = {
     *
     * */
     read: function(query, callback){
+        var query = query?query:{};
         db[this.collection].find(query).toArray(function(err, items){
             if(err){
                 return callback(status.fail);
