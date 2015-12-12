@@ -6,51 +6,6 @@ var cheerio = require('cheerio'),
 	pathconfig = require('../config/pathConfig');
 module.exports = {
 		
-		/**
-		 * 
-		 * 根据changedDom对指定的页面进行修改，接收到的数据格式为json对象，可能会有多个pageId，表示此页面有多个页面嵌套，需要分别修改
-		 * var changeDom = {
-					"page1":{
-						"url":"test/index.html",
-						"001":{"class":"cmsClass","value":"newValue1"},
-						"002":{"class":"cmsClass","value":"newValue2"},
-						"003":{"class":"cmsClass","value":"newValue3"},
-						"004":{"class":"cmsClass","value":"newValue4"},
-						"005":{"class":"cmsClass","value":"newValue5"}
-					}
-			}
-		 */
-		modify : function(changeDom){
-		    var content,$;
-		    //对changeDom进行遍历，分别对其中的页面进行修改
-		    for(var pageid in changeDom){
-        		var page = changeDom[pageid],pagePath = path.join(pathconfig.dst,page.url);
-        		var ext = path.extname(pagePath);
-    		    ext = ext ? ext.slice(1) : 'unknown';
-    		    
-    		    if (!fs.existsSync(pagePath)) {
-		            console.log('文件不存在');
-		            return false;
-		        } else {
-		        	//同步读取
-		        	content = fs.readFileSync(pagePath,'utf8');
-	                $ = cheerio.load(content);	                
-	               //修改一个页面
-	                for(var veriscms in page){
-	                	if(veriscms != 'url'){
-	                		$('[veriscms="' + veriscms + '"]').text(page[veriscms].value).attr('class',page[veriscms]["class"]);
-	                	}
-	                }
-	                
-	                
-	                //TODO 异步变同步
-		            fs.writeFileSync(pagePath, $.html());
-		            console.log('页面修改成功');
-		            return true;  
-		        }
-	        	
-        	}		    
-		},
 		
 		//创建多级目录  （共两个参数，第一个参数为根目录，第二个为真是的目录结构）
 		//mkdirsSync(pathconfig.dst,'another/add1/one')  创建文件夹
@@ -143,37 +98,7 @@ module.exports = {
 			
 			
 		},
-		//生成新页面
-		/**
-		 * 把模板文件和json数据结合在一起生成新的html文件
-		 * laypath为模板路径（包括模板名称），dst为生成的html文件的存储目录，data为用来渲染的数据
-		 * 
-		 */
-		layout : function(dst,laypath, htmlpath, data){
-			var laypath = dst.concat(laypath),
-				htmlpath = dst.concat(htmlpath),
-				$,source,template,result;
-				
-			if(fs.existsSync(laypath)){
-				content = fs.readFileSync(laypath,'utf8'),
-				$ = cheerio.load(content),
-				source = $.html(),
-				template = hbs.compile(source),
-				result = template(data);
-				console.log(result);
-				fs.writeFileSync(htmlpath, result)
-				if(fs.existsSync(htmlpath)){
-					console.log("页面生成")
-					return true;
-				}else{
-					console.log("生成失败")
-					return false;
-				}
-			}else{
-				console.log('模板文件不存在');
-				return false;
-			}
-		},
+		
 		/**
 		 * 同步读取文件
 		 * 
