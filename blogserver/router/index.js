@@ -117,10 +117,10 @@ module.exports = function(app) {
 	    		service[svName](params,function(err,backdata,isSuccess){
 	    			if(isSuccess){
 	    				console.log('返回结果');
-	    				returnedData.operate_code = "1";
+	    				returnedData.operate_code = 1;
 	    				returnedData["data"] = backdata;
 	    			}else{
-	    				returnedData.operate_code = "0";
+	    				returnedData.operate_code = 0;
 	    				returnedData["data"] = backdata;
 	    			}
 	    			response.json(returnedData);

@@ -19,6 +19,7 @@ module.exports = {
 			}else if(result.items.length){
 				obj.status=status.success.status;
                 obj.message= status.success.message;
+                obj.data = result;
 				console.log("++++++++用户已存在++++")	
 			}
 			return callback(obj)
@@ -26,11 +27,14 @@ module.exports = {
 	},
 	addNewUser : function(user,callback){
 		this._userExists(user,function(result){
-			if(result.status == 0)
-			mongo.create(user,function(data){
-				console.log("++++++++用户不存在，创建新用户++++")
-				return callback(data);
-			})
+			if(result.status == 0){
+				mongo.create(user,function(data){
+					console.log("++++++++用户不存在，创建新用户++++" + data)
+					return callback(data);
+				})
+			}else{
+				return callback(result)
+			}
 		});
 		
 	}

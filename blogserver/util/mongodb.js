@@ -48,6 +48,7 @@ CRUD.prototype = {
     *
     * */
     read: function(query, callback){
+        var query = query?query:{};
         db[this.collection].find(query).toArray(function(err, items){
             if(err){
                 return callback(status.fail);
