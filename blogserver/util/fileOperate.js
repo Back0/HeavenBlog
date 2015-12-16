@@ -4,9 +4,7 @@ var cheerio = require('cheerio'),
 	//hbs = require('hbs'),
 	mine = require('../config/mine'),
 	pathconfig = require('../config/pathConfig');
-module.exports = {
-		
-		
+module.exports = {		
 		//创建多级目录  （共两个参数，第一个参数为根目录，第二个为真是的目录结构）
 		//mkdirsSync(pathconfig.dst,'another/add1/one')  创建文件夹
 		/**

@@ -92,7 +92,7 @@ module.exports = function(app) {
 		response.send('nihao')
 	});
 	//post请求分支
-	app.post('/heavenserver', function (request, response,next) {
+	app.post('/heavenserver', function (request, response, next) {
 		console.log("-------收到post请求---------");
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
