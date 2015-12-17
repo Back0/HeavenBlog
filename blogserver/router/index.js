@@ -83,7 +83,7 @@ module.exports = function(app) {
 
 	//后台服务请求
 	//get请求分支
-	app.get('/heavenserver', function (request, response) {
+	app.get(/heavenserver/, function (request, response) {
 		console.lo("........收到get请求........")
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
@@ -92,7 +92,7 @@ module.exports = function(app) {
 		response.send('nihao')
 	});
 	//post请求分支
-	app.post('/heavenserver', function (request, response, next) {
+	app.post(/heavenserver/, function (request, response, next) {
 		console.log("-------收到post请求---------");
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
@@ -118,10 +118,10 @@ module.exports = function(app) {
 	    			if(isSuccess){
 	    				console.log('返回结果');
 	    				returnedData.operate_code = 1;
-	    				returnedData["data"] = backdata;
+	    				returnedData.heaven_data = backdata;
 	    			}else{
 	    				returnedData.operate_code = 0;
-	    				returnedData["data"] = backdata;
+	    				returnedData.heaven_data = backdata;
 	    			}
 	    			response.json(returnedData);
 	    		});

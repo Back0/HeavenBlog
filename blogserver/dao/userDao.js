@@ -3,37 +3,41 @@ var db = require('../util/mongodb'),
 var mongo = new db("user");
 module.exports = {
 	//用于检测用户是否已经存在，如果存在，则返回1，否则返回0,查询出错返回-1
+	/**
+	 * [_userExists description 该方法用于检测用户是否存在]
+	 * @param  {[json]}   user     [查询条件]
+	 * @param  {Function} callback [回调函数]
+	 * @return {[boolean,obj]}     [若存在,返回true和该用户信息，若不存在返回false和空数组，发生错误时返回false和err对象]
+	 */
 	_userExists : function(user,callback){
 		mongo.read({"email":user.email},function(result){
 			console.log("------------------" + JSON.stringify(result));
-			var obj = {
-                
-            	};
-			if(typeof result == "string"){
-				obj.status=-1;
-                obj.message= status.fail.message;
+			if(result.status){
+				if(result.items.length){
+					console.log("该用户已存在");
+					return callback(true,result.items[0]);
+				}else{
+					console.log("该用户不存在")
+					return callback(false,result.items);
+				}
+				
+			}else{
+				return callback(false,result.items);
 			}
-			else if(result.items.length == 0){
-				obj.status=status.fail.status;
-                obj.message= status.fail.message;
-			}else if(result.items.length){
-				obj.status=status.success.status;
-                obj.message= status.success.message;
-                obj.data = result;
-				console.log("++++++++用户已存在++++")	
-			}
-			return callback(obj)
 		})
 	},
 	addNewUser : function(user,callback){
-		this._userExists(user,function(result){
-			if(result.status == 0){
+		this._userExists(user,function(exist,result){
+			var obj= {};
+			if(!exist){
 				mongo.create(user,function(data){
 					console.log("++++++++用户不存在，创建新用户++++" + data)
 					return callback(data);
 				})
 			}else{
-				return callback(result)
+				obj.status = 0;
+				obj.items = result;
+				return callback(obj)
 			}
 		});
 		

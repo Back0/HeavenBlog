@@ -17,6 +17,15 @@ var CRUD = function(collection){
     this.collection = collection;
     db.bind(this.collection);
 };
+var fcode = status.fail.status,
+    fmessage = status.fail.message,
+    tcode = status.success.status,
+    tmessage = status.success.message;
+function initBackObj(status,message,item){
+    this.status = status;
+    this.message = message;
+    this.items = item;
+}
 /**
  * [prototype description]
  * @type {Object}
@@ -29,15 +38,18 @@ CRUD.prototype = {
     *
     * */
     create: function(model, callback){
+        var obj = {};
         db[this.collection].save(model, function(err, item){
             if(err) {
             	console.log("++++++++数据插入失败+++++++++" + err);
-                return callback(status.fail);
+                initBackObj.call(obj,fcode,fmessage,err);
+                return callback(obj);
+            }else{
+                console.log("++++++++数据插入成功+++++++++")
+                initBackObj.call(obj,tcode,tmessage,item);
+                return callback(obj);
             }
-            console.log("++++++++数据插入成功+++++++++")
-            item.status = status.success.status;
-            item.message = status.success.message;
-            return callback(item);
+            
         });
     },
 
@@ -48,18 +60,18 @@ CRUD.prototype = {
     *
     * */
     read: function(query, callback){
-        var query = query?query:{};
-        db[this.collection].find(query).toArray(function(err, items){
+        var obj = {};
+        db[this.collection].find(query).toArray(function(err, item){
             if(err){
-                return callback(status.fail);
-            }
-            var obj = {
-                status: status.success.status,
-                message: status.success.message,
-                items: items
-            };
-            console.log("查询结果：" + JSON.stringify(obj));
-            return callback(obj);
+                initBackObj.call(obj,fcode,fmessage,err);
+                return callback(obj);
+            }else{
+                console.log("查询结果：" + JSON.stringify(obj));
+                initBackObj.call(obj,tcode,tmessage,item);
+                console.dir(obj)
+                return callback(obj);
+            }           
+            
         });
     },
     /*
@@ -72,10 +84,15 @@ CRUD.prototype = {
     update: function(query, updateModel, callback){
         var set = {set: updateModel};
         db[this.collection].update(query, set, function(err){
+            var obj = {};
             if(err){
-                return callback(status.fail);
+                console.log("数据更新失败")
+                initBackObj.call(obj,fcode,fmessage,err);
+                return callback(obj);
             }else{
-                return callback(status.success);
+                console.log("数据更新成功");
+                initBackObj.call(obj,tcode,tmessage,"");
+                return callback(obj);
             }
         });
     },
@@ -88,13 +105,21 @@ CRUD.prototype = {
     * */
     deleteData: function(query, callback){
         db[this.collection].remove(query, function(err){
+            var obj = {};
             if(err){
-                return callback(status.fail);
+                console.log("数据删除失败");
+                initBackObj.call(obj,fcode,fmessage,err);
+                return callback(obj);
+            }else{
+                console.log("数据删除成功");
+                initBackObj.call(obj,tcode,tmessage,"");
+                return callback(obj);
             }
-            return callback(status.success);
         });
     }
 };
 
 
 module.exports = CRUD;
+
+
