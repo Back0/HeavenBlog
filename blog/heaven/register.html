@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>用户注册</title>
     <link rel="stylesheet" href="/heavenview/assets/css/reset.css"/>
     <link rel="stylesheet" href="/heavenview/assets/libs/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/heavenview/assets/css/main.css"/>
@@ -62,10 +62,10 @@ function registerUser(){
                     var data = data.heaven_data;
                     if(data.status){
                         alert("注册失败，该用户已存在")
-                        window.location.replace("./login.html");
+                        //window.location.replace("./login.html");
                     }else{
                         alert("注册成功");
-                        window.location.replace("./login.html");
+                        //window.location.replace("./login.html");
                     }
                 }else{
                     alert("请求失败")

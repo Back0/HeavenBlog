@@ -33,12 +33,12 @@ module.exports = {
 				mongo.create(user,function(data){
 					console.log("++++++++用户不存在，创建新用户++++" + data)
 					obj.status = exist
-					obj.items = data.items;
+					//obj.items = data.items;
 					return callback(obj);
 				})
 			}else{
 				obj.status = exist;
-				obj.items = result;
+				//obj.items = result;
 				return callback(obj)
 			}
 		});
