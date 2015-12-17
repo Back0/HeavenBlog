@@ -114,7 +114,7 @@ module.exports = function(app) {
 	        		//TODO 返回错误信息
 	        	}
 	        	//TODO  post随行参数传入前进行包装
-	    		service[svName](params,function(err,backdata,isSuccess){
+	    		service[svName](params,function(backdata,isSuccess){
 	    			if(isSuccess){
 	    				console.log('返回结果');
 	    				returnedData.operate_code = 1;

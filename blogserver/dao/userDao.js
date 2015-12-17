@@ -15,27 +15,29 @@ module.exports = {
 			if(result.status){
 				if(result.items.length){
 					console.log("该用户已存在");
-					return callback(true,result.items[0]);
+					return callback(1,result.items[0]);
 				}else{
 					console.log("该用户不存在")
-					return callback(false,result.items);
+					return callback(0,result.items);
 				}
 				
 			}else{
-				return callback(false,result.items);
+				return callback(-1,result.items);
 			}
 		})
 	},
 	addNewUser : function(user,callback){
 		this._userExists(user,function(exist,result){
 			var obj= {};
-			if(!exist){
+			if(exist == 0){
 				mongo.create(user,function(data){
 					console.log("++++++++用户不存在，创建新用户++++" + data)
-					return callback(data);
+					obj.status = exist
+					obj.items = data.items;
+					return callback(obj);
 				})
 			}else{
-				obj.status = 0;
+				obj.status = exist;
 				obj.items = result;
 				return callback(obj)
 			}

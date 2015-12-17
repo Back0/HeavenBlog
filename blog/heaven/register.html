@@ -58,9 +58,17 @@ function registerUser(){
 
         $.post('http://localhost:2014/heavenserver?servicecode=registeruser',condition,function(data){
                 if(data.operate_code){
-                    alert("注册成功")
+                    alert("请求成功")
+                    var data = data.heaven_data;
+                    if(data.status){
+                        alert("注册失败，该用户已存在")
+                        window.location.replace("./login.html");
+                    }else{
+                        alert("注册成功");
+                        window.location.replace("./login.html");
+                    }
                 }else{
-                    alert("注册失败")
+                    alert("请求失败")
                 }
         })
 }
