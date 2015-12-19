@@ -16,7 +16,11 @@ module.exports = {
 		var newUser = new member(user);
 		console.log("新用户信息 ------>" +newUser);
 		userdao.addNewUser(newUser,function(data){
-			callback("",data,data.status);
+			if(data.status == -1){
+				callback(data,false)
+			}else{
+				callback(data,true)
+			}
 		});
 	},
 	test : function(lan,callback){

@@ -16,12 +16,4 @@ module.exports = {
         status: 0,
         message: 'FAIL'
     },
-
-    /*
-    * 两次输入的密码不一致
-    * */
-    repeatPassword: {
-        status: 0,
-        message: '两次输入的密码不一致'
-    }
  };
