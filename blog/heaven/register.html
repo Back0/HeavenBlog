@@ -42,9 +42,13 @@
     <script src="/heavenview/assets/libs/js/bootstrap.min.js"></script>
 </body>
 <script type="text/javascript">
+<script
 $(function(){
     $('button[name="register"').bind('click',registerUser)
 })
+function validate(obj){
+
+}
 function registerUser(){
     var userName = $('#user-name').val(),
         nickName = $('#nick-name').val(),
