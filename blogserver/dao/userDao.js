@@ -26,6 +26,11 @@ module.exports = {
 			}
 		})
 	},
+	/**
+	 * [addNewUser 新增用户]
+	 * @param {[object]}   user     [新增的用户信息对象]
+	 * @param {Function} callback   [回调函数]
+	 */
 	addNewUser : function(user,callback){
 		this._userExists(user,function(exist,result){
 			var obj= {};

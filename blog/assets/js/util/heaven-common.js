@@ -53,8 +53,8 @@ function validate(select,obj){
 
 
 		//验证obj条件是否全部满足
-		for(var i in obj){
-			if(!obj[i]){
+		for(var i in result){
+			if(!result[i]){
 				validate = false; 
 			}
 		}

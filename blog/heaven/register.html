@@ -40,16 +40,28 @@
     </div>
     <script src="/heavenview/assets/libs/js/jquery.js"></script>
     <script src="/heavenview/assets/libs/js/bootstrap.min.js"></script>
+    <script src="/heavenview/assets/js/util/heaven-common.js"></script>
 </body>
 <script type="text/javascript">
+<<<<<<< HEAD
 
+=======
+>>>>>>> TianTang-TT/master
 $(function(){
     $('button[name="register"]').bind('click',registerUser)
 })
-function validate(obj){
-
-}
 function registerUser(){
+    var emailValidate = {required:true,email:true},
+            inputValidate = {required:true};
+        if(!validate('#user-name',emailValidate)){
+            alert("用户名不合法，请输入正确的邮箱");
+            return;
+        }
+        if(!validate("#nick-name",inputValidate) || !validate('#user-pass',inputValidate)){
+            alert("用户名和密码不能为空");
+            return;
+        }
+
     var userName = $('#user-name').val(),
         nickName = $('#nick-name').val(),
         password = $('#user-pass').val(),
