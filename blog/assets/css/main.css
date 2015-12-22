@@ -49,3 +49,40 @@
         float: right; }
 
 /*# sourceMappingURL=main.css.map */
+.nav[role='navigation']{
+  border-bottom: 1px solid rgba(200,200,200,.7);
+}
+.navbar-toggle .icon-bar{
+  background: #23527c;
+}
+
+.article-list{
+  padding-left: 20px;
+}
+.article-item-body{
+  border-bottom: 1px dashed rgba(200,200,200,.7);
+  padding: 20px 0;
+}
+.article-item-body .article-item-title{
+  font-size: 18px;
+  text-decoration: underline;
+}
+.article-item-body .article-item-summary a{
+  color: #000;
+}
+.search-by{
+  width: 100%;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 1px 10px 10px #ddd;
+  -webkit-box-shadow: 1px 10px 10px #ddd;
+  margin-top: 20px;
+}
+.search-by li{
+  list-style: none;
+  height: 24px;
+  line-height: 24px;
+}
+.search-by li:first-child{
+  font-size: 16px;
+}
