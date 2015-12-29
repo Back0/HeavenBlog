@@ -21,8 +21,7 @@
             <p>
                 <label for="user-name">
                     用户名<br/>
-                    <input type="text" class="input" name="user-name" id="user-name" size="20">
-                </label>
+                    <input type="text" class="input" name="user-email" id="user-name" size="20">
             </p>
             <p>
                 <label for="user-pass">
@@ -36,25 +35,51 @@
                 </label>
             </p>
             <p class="submit">
-                <button type="button" class="btn btn-primary"  name="submit">登录</button>
+                <button type="button" class="btn btn-primary"  name="login">登录</button>
             </p>
             <br class="clear"/>
         </form>
     </div>
     <script src="/heavenview/assets/libs/js/jquery.js"></script>
     <script src="/heavenview/assets/libs/js/bootstrap.min.js"></script>
+    <script src="/heavenview/assets/js/util/heaven-common.js"></script>
 </body>
 <script type="text/javascript">
 $(function(){
-    $()
+    $('button[name="login"]').bind('click',login)
 })
-function registerUser(){
-    var userName = $('#userName').val(),
-        password = $('#user-pass').val();
-        $.get('/heavenserver?servicecode= userlogin',function(data){
-            if(data){
-                console.log(data)
-            }
+function login(){
+    var userName = $('#user-name').val(),
+        password = $('#user-pass').val(),
+        inPara = {
+            email : userName,
+            password:password
+        };
+        var emailValidate = {required:true,email:true},
+            inputValidate = {required:true};
+        if(!validate('#user-name',emailValidate)){
+            alert("用户名不合法，请输入正确的邮箱");
+            return;
+        }
+        if(!validate("#user-pass",inputValidate) || !validate('#user-pass',inputValidate)){
+            alert("用户名和密码不能为空");
+            return;
+        }
+        condition = JSON.stringify(inPara);
+        $.post('/heavenserver?servicecode=userlogin',condition,function(data){
+            if(data.operate_code){
+                    alert("请求成功")
+                    var data = data.heaven_data;
+                    if(data.status){
+                        alert("登陆成功");
+                        window.location.replace("./list.html");
+                    }else{
+                        alert("用户名或密码不正确");
+                        return false
+                    }
+                }else{
+                    alert("请求失败")
+                }
         })
 }
 </script>

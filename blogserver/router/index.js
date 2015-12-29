@@ -84,7 +84,7 @@ module.exports = function(app) {
 	//后台服务请求
 	//get请求分支
 	app.get(/heavenserver/, function (request, response) {
-		console.lo("........收到get请求........")
+		console.lo("........收到get请求........");
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
 			servicecode = query.servicecode;	
