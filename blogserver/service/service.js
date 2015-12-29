@@ -25,9 +25,8 @@ module.exports = {
 		console.log("________用户登录服务")
 		userdao.login(user, function(exist,result){
 			var obj = {},temp = heaven.clone(result);
-			console.log("临时变量")
-			console.dir(temp)
 			delete(temp.password);
+			delete(temp._id);
 			obj.status = exist;
 
 			if(exist == -1){

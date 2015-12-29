@@ -115,8 +115,8 @@ module.exports = function(app) {
 	        	}
 	        	//TODO  post随行参数传入前进行包装
 	    		service[svName](params,function(backdata,isSuccess){
+	    			console.log('服务调用结束');
 	    			if(isSuccess){
-	    				console.log('返回结果');
 	    				returnedData.operate_code = 1;
 	    				returnedData.heaven_data = backdata;
 	    			}else{
