@@ -84,7 +84,7 @@ module.exports = function(app) {
 	//后台服务请求
 	//get请求分支
 	app.get(/heavenserver/, function (request, response) {
-		console.lo("........收到get请求........")
+		console.lo("........收到get请求........");
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
 			servicecode = query.servicecode;	
@@ -115,8 +115,8 @@ module.exports = function(app) {
 	        	}
 	        	//TODO  post随行参数传入前进行包装
 	    		service[svName](params,function(backdata,isSuccess){
+	    			console.log('服务调用结束');
 	    			if(isSuccess){
-	    				console.log('返回结果');
 	    				returnedData.operate_code = 1;
 	    				returnedData.heaven_data = backdata;
 	    			}else{

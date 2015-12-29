@@ -48,5 +48,11 @@ module.exports = {
 			}
 		});
 		
+	},
+	login : function(user, callback){
+		console.log("dao login");
+		this._userExists(user, function(exist,result){
+			return callback(exist,result)
+		})
 	}
 }
