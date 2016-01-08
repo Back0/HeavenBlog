@@ -1,12 +1,9 @@
-var url = require('url'),
-	path = require('path'),
-	template = require('art-template'),
+var template = require('art-template'),
 	member = require('../models/member'),
 	article = require('../models/article'),
 	userdao = require('../dao/userDao'),
 	viewdao = require('../dao/viewDao'),
 	pathconfig = require('../config/pathConfig'),
-	svconfig = require('../config/svConfig'),
 	heaven = require('../util/heaven');
 module.exports = {
 	registeruser : function (user,callback){
