@@ -3,7 +3,7 @@ var routerware = require('../middleware/routeWare'),
 module.exports = function(app) {
   	//heavenview请求前台资源
   	app.use(function(request, request, next){
-  		console.log('请求时间：' + Date.now());
+  		console.log('请求时间：' + new Date());
   		next();
   	})
   	app.get(/heavenview/,routerware.getRouterWare);
