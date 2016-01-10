@@ -1,11 +1,15 @@
 var routerware = require('../middleware/routeWare'),
-	deliver = require("../middleware/deliver");
+	deliver = require("../middleware/deliver"),
+	date = require("../util/date");
+var dateStr = '';
 module.exports = function(app) {
   	//heavenview请求前台资源
-  	app.use(function(request, request, next){
-  		console.log('请求时间：' + new Date());
+  	app.use(function(request, response, next){
+
+		dateStr = date.format(new Date());
+  		console.log('请求时间：' + dateStr);
   		next();
-  	})
+  	});
   	app.get(/heavenview/,routerware.getRouterWare);
   	app.get(/heavenview/,deliver.getServiceWare);
 
