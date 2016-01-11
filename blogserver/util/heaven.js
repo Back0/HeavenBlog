@@ -13,8 +13,8 @@ module.exports = {
             return newO;  
 		},
 		generateID : function (){
-			var cmsid = '';
-			for(; cmsid.length < 16; cmsid += Math.random().toString(36).substr(2));
-			return cmsid.substr(0,16);
+			var id = '';
+			for(; id.length < 16; id += Math.random().toString(36).substr(2));
+			return id.substr(0,16);
 		}
 };
