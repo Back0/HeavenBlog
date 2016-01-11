@@ -17,4 +17,4 @@ module.exports = {
 			for(; cmsid.length < 16; cmsid += Math.random().toString(36).substr(2));
 			return cmsid.substr(0,16);
 		}
-}
+};
