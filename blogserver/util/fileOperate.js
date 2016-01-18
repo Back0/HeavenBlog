@@ -1,7 +1,6 @@
 var cheerio = require('cheerio'),
 	fs = require('fs'),
 	path = require('path'),
-	//hbs = require('hbs'),
 	mine = require('../config/mine'),
 	pathconfig = require('../config/pathConfig');
 module.exports = {		

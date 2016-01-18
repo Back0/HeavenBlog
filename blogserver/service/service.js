@@ -1,8 +1,6 @@
-var template = require('art-template'),
-	member = require('../models/member'),
+var member = require('../models/member'),
 	article = require('../models/article'),
 	userdao = require('../dao/userDao'),
-	viewdao = require('../dao/viewDao'),
 	pathconfig = require('../config/pathConfig'),
 	heaven = require('../util/heaven');
 module.exports = {
@@ -46,12 +44,6 @@ module.exports = {
 		})
 	},
 	test : function(lan,callback){
-		viewdao.i18n(lan,function(data){
-			if(data){
-				var html = template(pathconfig.server["tpl"] + 'index',data);
-				console.log(html);
-				callback(true,html);
-			}
-		})
+		console.log("test")
 	}
 };
