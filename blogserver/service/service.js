@@ -43,7 +43,7 @@ module.exports = {
 			}
 		})
 	},
-	test : function(lan,callback){
+	test : function(data,callback){
 		console.log("test")
 	}
 };

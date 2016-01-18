@@ -1,5 +1,4 @@
-var cheerio = require('cheerio'),
-	fs = require('fs'),
+var fs = require('fs'),
 	path = require('path'),
 	mine = require('../config/mine'),
 	pathconfig = require('../config/pathConfig');
