@@ -15,14 +15,10 @@
   "author": "heaven",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.13.3",
-    "cheerio": "^0.19.0",
-    "request": "^2.65.0"
+    "express": "^4.13.3"
   },
   "dependencies": {
-    "art-template": "^3.0.3",
     "mongodb": "^2.0.48",
     "mongoskin": "^2.0.3",
-    "redis": "^2.3.1"
   }
 }
