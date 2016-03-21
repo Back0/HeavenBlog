@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>用户注册</title>
     <link rel="stylesheet" href="/heavenview/assets/css/reset.css"/>
-    <link rel="stylesheet" href="/heavenview/assets/libs/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/heavenview/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/heavenview/assets/css/main.css"/>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -41,12 +41,16 @@
             <br class="clear"/>
         </form>
     </div>
-    <script src="/heavenview/assets/libs/js/jquery.js"></script>
-    <script src="/heavenview/assets/libs/js/bootstrap.min.js"></script>
-    <script src="/heavenview/assets/js/util/heaven-common.js"></script>
+    <!-- <script src="/heavenview/assets/libs/js/jquery.js"></script>    
+    <script src="/heavenview/assets/js/util/heaven-common.js"></script> 
+    <script src="/heavenview/assets/libs/js/bootstrap.min.js"></script>-->
 </body>
+<script type="text/javascript" src="/heavenview/assets/js/require.js" data-main="/heavenview/assets/js/main.js" ></script>
 <script type="text/javascript">
-$(function(){
+require(['common'],function(){
+    console.log(jquery);
+})
+/*$(function(){
     $('button[name="register"]').bind('click',registerUser)
 })
 function registerUser(){
@@ -86,6 +90,6 @@ function registerUser(){
                     alert("请求失败")
                 }
         })
-}
+}*/
 </script>
 </html>
