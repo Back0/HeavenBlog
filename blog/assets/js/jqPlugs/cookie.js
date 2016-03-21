@@ -1,4 +1,4 @@
-define('cookie',['jquery'],function($){
+define(function(){
 	$.heaven = $.heaven || {};
 	$.extend($.heaven,{
 		/*

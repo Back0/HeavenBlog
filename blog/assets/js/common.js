@@ -1,3 +1,5 @@
 define(function(){
-	require(['jquery','heaven-common','cookie','core','heaven']);
+	require(['cookie','core','heaven'],function(){
+		console.log($.heaven)
+	});
 })

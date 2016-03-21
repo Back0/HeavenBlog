@@ -1,4 +1,4 @@
-define('$heaven',['jquery'],function($){
+define(function(){
 	$.heaven = $.heaven || {};
 	$.extend($.heaven,{
 		/*
@@ -33,7 +33,7 @@ define('$heaven',['jquery'],function($){
 		},
 
 
-		
+
 		/**
 		 * [isEmptyObj 该函数判定传入参数是否为空对象{}，如果是返回true，否则返回false]
 		 * @param  {[type]}  obj [object对象]
@@ -50,7 +50,7 @@ define('$heaven',['jquery'],function($){
 				}
 			}
 			return false;
-		}
+		},
 		/**
 		 * [validate 表单验证]
 		 * @param  {[string]} select [jq选择器]

@@ -12,7 +12,6 @@ require.config({
         "cookie" : "jqPlugs/cookie",
         "core" : "jqPlugs/core",
         "heaven" : "jqPlugs/heaven",
-		"heaven-common" : "util/heaven-common"
     }
 });
 
