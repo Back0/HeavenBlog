@@ -58,7 +58,7 @@ define(function(){
 		 * @return {[type]}        [如果验证全部通过，则返回true，否则返回false]
 		 */
 		validate : function(select,obj){
-			if(!isEmptyObj(obj)){
+			if(!this.isEmptyObj(obj)){
 				var value = $(select).val(),result = {},validate = true,
 					emailExp = /^[\d\w]+@[\d\w]+\.[\d\w]+/,
 					numberExp = /^[0-9]*$/;

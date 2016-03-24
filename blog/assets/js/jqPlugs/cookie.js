@@ -2,7 +2,7 @@ define(function(){
 	$.heaven = $.heaven || {};
 	$.extend($.heaven,{
 		/*
-		
+		cookie设置与读取，通过是否有第二个参数来判定，如果第二个参数为undefined，则为读取，否则为设置
 		 */
 		cookie:function(name, value, options){
 			if(typeof value === "undefined" ){

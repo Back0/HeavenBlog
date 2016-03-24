@@ -5,7 +5,7 @@
     <title>用户登录</title>
 
     <link rel="stylesheet" href="/heavenview/assets/css/reset.css"/>
-    <link rel="stylesheet" href="/heavenview/assets/libs/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/heavenview/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/heavenview/assets/css/main.css"/>
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -42,14 +42,15 @@
             <br class="clear"/>
         </form>
     </div>
-    <script src="/heavenview/assets/libs/js/jquery.js"></script>
-    <script src="/heavenview/assets/libs/js/bootstrap.min.js"></script>
-    <script src="/heavenview/assets/js/util/heaven-common.js"></script>
+
+<script type="text/javascript" src="/heavenview/assets/js/jquery.js" ></script>
+<script src="/heavenview/assets/js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="/heavenview/assets/js/require.js" data-main="/heavenview/assets/js/main.js" ></script>
 </body>
 <script type="text/javascript">
-$(function(){
+require(['common',function(){
     $('button[name="login"]').bind('click',login)
-})
+}])
 function login(){
     var userName = $('#user-name').val(),
         password = $('#user-pass').val(),

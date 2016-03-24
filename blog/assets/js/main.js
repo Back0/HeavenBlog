@@ -8,10 +8,13 @@ require.config({
     paths : {
     	"common" : "common",
     	"jquery" : "lib/jquery",
-    	"bootstrap" : "lib/bootstrap.min",
+    	"bootstrap" : "lib/bootstrap",
         "cookie" : "jqPlugs/cookie",
         "core" : "jqPlugs/core",
         "heaven" : "jqPlugs/heaven",
-    }
+    },
+    shim : {
+            "bootstrap": ["jquery"]
+        },
 });
 
