@@ -1,4 +1,4 @@
-define(function(){
+define(['cookie','heaven'], function(){
 	/*
 	 全局
 
