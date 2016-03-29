@@ -7,14 +7,16 @@ require.config({
 	baseUrl : "assets/js",
     paths : {
     	"common" : "common",
-    	"jquery" : "lib/jquery",
+    	"jquery" : "jquery",
     	"bootstrap" : "lib/bootstrap",
         "cookie" : "jqPlugs/cookie",
         "core" : "jqPlugs/core",
         "heaven" : "jqPlugs/heaven",
     },
     shim : {
-            "bootstrap": ["jquery"]
+            "bootstrap": {
+                exports: "bootstrap"
+            }
         },
 });
 
