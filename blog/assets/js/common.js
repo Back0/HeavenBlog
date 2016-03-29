@@ -1,3 +1,3 @@
 define(function(){
-	require(['cookie','heaven','core','bootstrap']);
+	require(['jquery','cookie','heaven','core','bootstrap']);
 })
