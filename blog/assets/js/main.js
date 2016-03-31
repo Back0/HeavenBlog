@@ -2,7 +2,6 @@
  *
  * 全局配置文件
  */
-
 require.config({
 	baseUrl : "assets/js",
     paths : {

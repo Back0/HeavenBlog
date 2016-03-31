@@ -6,3 +6,5 @@ define(['cookie','heaven'], function(){
 	$.heaven = $.heaven || {};
 	$.extend($.heaven);	
 })
+
+

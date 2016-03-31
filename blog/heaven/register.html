@@ -48,7 +48,11 @@
 <script type="text/javascript" src="/heavenview/assets/js/jquery.js" ></script>
 <script type="text/javascript" src="/heavenview/assets/js/require.js" data-main="/heavenview/assets/js/main.js" ></script>
 <script type="text/javascript">
-require(['common'],function(){
+/*require(['common'],function(){
+    $('button[name="register"]').bind('click',registerUser)
+})*/
+
+require(['jquery','cookie'],function(){
     $('button[name="register"]').bind('click',registerUser)
 })
 function registerUser(){
