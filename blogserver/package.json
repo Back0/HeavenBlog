@@ -20,5 +20,6 @@
   "dependencies": {
     "mongodb": "^2.0.48",
     "mongoskin": "^2.0.3",
+    "morgan": "^1.7.0"
   }
 }

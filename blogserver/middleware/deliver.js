@@ -5,7 +5,6 @@ var fs = require('fs'),
 module.exports = {
 		//get静态资源请求
 	getServiceWare : function(request, response, next){
-		console.log("get view 请求处理")
   		var viewCondition = request.viewCondition,
 			pathname = viewCondition.pathname,
 			realPath = viewCondition.realPath,
@@ -37,7 +36,6 @@ module.exports = {
 	    });		
 	},
 	postServiceWare : function(request, response, next){
-		console.log("-------处理post请求---------");
 		var condition = request.serviceCondition,
 			servicecode = condition.servicecode,
 			postData = '',
@@ -58,7 +56,6 @@ module.exports = {
 	        	}
 	        	//TODO  post随行参数传入前进行包装
 	    		service[svName](params,function(backdata,isSuccess){
-	    			console.log('服务调用结束');
 	    			if(isSuccess){
 	    				returnedData.operate_code = 1;
 	    				returnedData.heaven_data = backdata;

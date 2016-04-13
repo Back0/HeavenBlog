@@ -5,7 +5,6 @@ var url = require('url'),
 module.exports = {
 	//get路由处理
 	getRouterWare : function(request, response, next){
-		console.log("get路由中间件");
   		//对路由进行处理
   		var pathname = url.parse(request.url).pathname,
 			pathname = pathname.replace(/heavenview\//g,''),
@@ -27,7 +26,6 @@ module.exports = {
 	},
 
 	postRouterWare : function(request, response, next){
-		console.log("post路由中间件");
 		var pathname = url.parse(request.url).pathname,
 			query = url.parse(request.url,true).query,
 			serviceCondition = {},

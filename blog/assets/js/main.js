@@ -6,6 +6,7 @@ require.config({
 	baseUrl : "assets/js",
     paths : {
     	"common" : "common",
+        "main" : "main",
     	"jquery" : "jquery",
     	"bootstrap" : "lib/bootstrap",
         "cookie" : "jqPlugs/cookie",
